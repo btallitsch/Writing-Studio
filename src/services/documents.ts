@@ -6,7 +6,6 @@ import {
   doc,
   query,
   where,
-  orderBy,
   onSnapshot,
   Unsubscribe,
 } from 'firebase/firestore';
@@ -19,13 +18,13 @@ export function subscribeDocuments(
   userId: string,
   cb: (docs: Document[]) => void
 ): Unsubscribe {
-  const q = query(
-    collection(db, COL),
-    where('userId', '==', userId),
-    orderBy('updatedAt', 'desc')
-  );
+  const q = query(collection(db, COL), where('userId', '==', userId));
   return onSnapshot(q, snap =>
-    cb(snap.docs.map(d => ({ id: d.id, ...d.data() } as Document)))
+    cb(
+      snap.docs
+        .map(d => ({ id: d.id, ...d.data() } as Document))
+        .sort((a, b) => b.updatedAt - a.updatedAt)
+    )
   );
 }
 
