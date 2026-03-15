@@ -1,0 +1,127 @@
+.sidebar {
+  width: 210px;
+  min-width: 210px;
+  height: 100vh;
+  background: var(--bg-2);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 1.4rem 1.25rem 1.2rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.brandIcon {
+  color: var(--amber);
+  flex-shrink: 0;
+}
+
+.brandName {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--text);
+  letter-spacing: 0.01em;
+}
+
+.nav {
+  flex: 1;
+  padding: 0.75rem 0.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  overflow-y: auto;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  width: 100%;
+  padding: 0.55rem 0.75rem;
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--text-3);
+  font-size: 0.85rem;
+  font-family: var(--font-ui);
+  font-weight: 400;
+  transition: all 0.13s;
+  text-align: left;
+  position: relative;
+}
+
+.navItem:hover {
+  color: var(--text);
+  background: var(--bg-3);
+}
+
+.navItem.active {
+  color: var(--amber);
+  background: var(--amber-dim);
+  font-weight: 500;
+}
+
+.navItem.active .navIcon {
+  color: var(--amber);
+}
+
+.navIcon { display: flex; align-items: center; flex-shrink: 0; }
+.navLabel { flex: 1; }
+
+.badge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  background: var(--amber);
+  color: var(--text-inv);
+  padding: 0.1rem 0.4rem;
+  border-radius: 999px;
+  min-width: 18px;
+  text-align: center;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.9rem 1rem;
+  border-top: 1px solid var(--border);
+  background: var(--bg);
+}
+
+.avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid var(--border-2);
+  flex-shrink: 0;
+  object-fit: cover;
+}
+
+.userInfo { flex: 1; min-width: 0; }
+
+.userName {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.userEmail {
+  font-size: 0.68rem;
+  color: var(--text-3);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.logout { flex-shrink: 0; }

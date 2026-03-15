@@ -1,0 +1,173 @@
+.page {
+  padding: 2.5rem 2rem;
+  max-width: 860px;
+  overflow-y: auto;
+  height: 100%;
+}
+
+.header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 2.5rem;
+}
+
+.greeting {
+  font-size: 0.9rem;
+  color: var(--text-3);
+  font-family: var(--font-mono);
+  letter-spacing: 0.04em;
+  margin-bottom: 0.1rem;
+}
+
+.name {
+  font-family: var(--font-display);
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: var(--text);
+  font-style: italic;
+}
+
+.streakBadge {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--amber-dim);
+  border: 1px solid var(--amber-glow);
+  border-radius: 999px;
+  padding: 0.5rem 1rem;
+}
+
+.flameIcon { color: var(--amber); }
+
+.streakNum {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--amber);
+}
+
+.streakLabel {
+  font-size: 0.78rem;
+  color: var(--text-2);
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.statCard {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.25rem 1.25rem 1.25rem;
+  text-align: left;
+  transition: all 0.15s;
+  position: relative;
+  overflow: hidden;
+  font-family: var(--font-ui);
+}
+
+.statCard::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.2s;
+  background: linear-gradient(135deg, var(--bg-3) 0%, transparent 100%);
+}
+
+.statCard:hover::before { opacity: 1; }
+.statCard:hover { border-color: var(--border-2); transform: translateY(-2px); box-shadow: var(--shadow-sm); }
+
+.statIcon {
+  width: 46px;
+  height: 46px;
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.statBody { flex: 1; }
+
+.statValue {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1;
+}
+
+.statLabel {
+  font-size: 0.78rem;
+  color: var(--text-3);
+  margin-top: 0.2rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.arrow { color: var(--text-3); flex-shrink: 0; }
+
+.lower {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.totalWords {
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.totalNum {
+  font-family: var(--font-display);
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--amber);
+  line-height: 1;
+}
+
+.totalLabel {
+  font-size: 0.8rem;
+  color: var(--text-3);
+  margin-top: 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.quickActions {
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+}
+
+.qaTitle {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-3);
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.qaButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.qaButtons .btn { justify-content: flex-start; font-size: 0.82rem; }

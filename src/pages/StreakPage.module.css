@@ -1,0 +1,203 @@
+.page {
+  padding: 2rem;
+  height: 100%;
+  overflow-y: auto;
+  max-width: 860px;
+}
+
+.topBar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 1.75rem;
+}
+
+.pageTitle { font-family: var(--font-display); font-size: 1.6rem; font-weight: 700; }
+.pageSub { font-size: 0.8rem; color: var(--text-3); margin-top: 0.15rem; }
+
+.activeBadge {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--amber-dim);
+  border: 1px solid var(--amber-glow);
+  border-radius: 999px;
+  padding: 0.45rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--amber);
+}
+
+/* Stats */
+.statsRow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.statCard {
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.statIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.statValue {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.statLabel {
+  font-size: 0.72rem;
+  color: var(--text-3);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  font-weight: 500;
+}
+
+/* Heatmap */
+.heatmapSection {
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.heatmapTitle {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-3);
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.legend {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-bottom: 1.25rem;
+}
+
+.legendLabel {
+  font-size: 0.68rem;
+  color: var(--text-3);
+}
+
+.legendBox {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+}
+
+.monthBlock { margin-bottom: 1.25rem; }
+
+.monthLabel {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-2);
+  margin-bottom: 0.5rem;
+  font-family: var(--font-mono);
+}
+
+.calGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 3px;
+  max-width: 320px;
+}
+
+.day, .dayEmpty {
+  aspect-ratio: 1;
+  border-radius: 2px;
+}
+
+.dayEmpty { background: transparent; }
+
+.today {
+  outline: 2px solid var(--amber);
+  outline-offset: 1px;
+}
+
+/* Intensity levels */
+.intensity0 { background: var(--bg-3); }
+.intensity1 { background: #3a6b3a; }
+.intensity2 { background: #4a8a4a; }
+.intensity3 { background: #5ab05a; }
+.intensity4 { background: #72d072; }
+
+/* Recent sessions */
+.recentSection {
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+}
+
+.recentTitle {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-3);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.recentList { display: flex; flex-direction: column; gap: 0.6rem; }
+
+.recentItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.recentDate {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-3);
+  width: 90px;
+  flex-shrink: 0;
+}
+
+.recentBar {
+  flex: 1;
+  height: 6px;
+  background: var(--bg-3);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.recentBarFill {
+  height: 100%;
+  background: var(--amber);
+  border-radius: 3px;
+  transition: width 0.4s ease;
+  min-width: 3px;
+}
+
+.recentWords {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-2);
+  width: 55px;
+  text-align: right;
+  flex-shrink: 0;
+}

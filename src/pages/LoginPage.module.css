@@ -1,0 +1,90 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  position: relative;
+  overflow: hidden;
+}
+
+.page::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 30% 40%, rgba(212,148,58,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 75% 70%, rgba(212,148,58,0.04) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.noise {
+  position: absolute;
+  inset: 0;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+.card {
+  position: relative;
+  z-index: 1;
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 3rem 2.5rem;
+  width: min(420px, 90vw);
+  text-align: center;
+  box-shadow: var(--shadow);
+  animation: slideUp 0.4s ease;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  background: var(--amber-dim);
+  border: 1px solid var(--amber-glow);
+  border-radius: 50%;
+  color: var(--amber);
+  margin-bottom: 1.25rem;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.75rem;
+}
+
+.tagline {
+  font-size: 0.9rem;
+  color: var(--text-2);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.signIn {
+  width: 100%;
+  justify-content: center;
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  background: var(--bg-3);
+  color: var(--text);
+  border: 1px solid var(--border-2);
+  margin-bottom: 1.25rem;
+}
+.signIn:hover {
+  background: var(--bg-4);
+  border-color: var(--amber);
+  transform: translateY(-1px);
+}
+
+.note {
+  font-size: 0.75rem;
+  color: var(--text-3);
+}
