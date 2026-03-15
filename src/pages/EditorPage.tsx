@@ -48,20 +48,36 @@ export function EditorPage({ documents, activeDoc, onSelect, onCreate, onSave, o
     if (!ta || !activeDoc) return;
     const { selectionStart: s, selectionEnd: e, value } = ta;
 
-    let result;
-    if (type === 'bold')   result = wrapSelection(value, s, e, '**', '**');
-    else if (type === 'italic') result = wrapSelection(value, s, e, '_', '_');
-    else if (type === 'code')   result = wrapSelection(value, s, e, '`', '`');
-    else if (type === 'quote')  result = insertLine(value, s, '> ');
-    else if (type === 'ul')     result = insertLine(value, s, '- ');
-    else if (type === 'h2')     result = insertLine(value, s, '## ');
-    else return;
+    let newText: string;
+    let cursorStart: number;
+    let cursorEnd: number;
 
-    handleContent(result.newText);
+    if (type === 'bold') {
+      const r = wrapSelection(value, s, e, '**', '**');
+      newText = r.newText; cursorStart = r.newStart; cursorEnd = r.newEnd;
+    } else if (type === 'italic') {
+      const r = wrapSelection(value, s, e, '_', '_');
+      newText = r.newText; cursorStart = r.newStart; cursorEnd = r.newEnd;
+    } else if (type === 'code') {
+      const r = wrapSelection(value, s, e, '`', '`');
+      newText = r.newText; cursorStart = r.newStart; cursorEnd = r.newEnd;
+    } else if (type === 'quote') {
+      const r = insertLine(value, s, '> ');
+      newText = r.newText; cursorStart = r.newStart; cursorEnd = r.newStart;
+    } else if (type === 'ul') {
+      const r = insertLine(value, s, '- ');
+      newText = r.newText; cursorStart = r.newStart; cursorEnd = r.newStart;
+    } else if (type === 'h2') {
+      const r = insertLine(value, s, '## ');
+      newText = r.newText; cursorStart = r.newStart; cursorEnd = r.newStart;
+    } else {
+      return;
+    }
+
+    handleContent(newText);
     setTimeout(() => {
       ta.focus();
-      const pos = 'newStart' in result ? result.newStart : result.newStart;
-      ta.setSelectionRange(pos, 'newEnd' in result ? result.newEnd : pos);
+      ta.setSelectionRange(cursorStart, cursorEnd);
     }, 0);
   };
 

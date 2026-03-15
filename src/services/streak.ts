@@ -6,7 +6,7 @@ import {
   Unsubscribe,
 } from 'firebase/firestore';
 import { db } from '../lib/firebase';
-import type { StreakData, StreakDay } from '../types';
+import type { StreakData } from '../types';
 import { todayKey } from '../utils/dates';
 
 function streakRef(userId: string) {
