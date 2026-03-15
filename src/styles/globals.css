@@ -287,3 +287,47 @@ button {
 }
 .prose strong { color: var(--amber-2); font-weight: 700; }
 .prose hr { border: none; border-top: 1px solid var(--border); margin: 1.5em 0; }
+
+/* ── Fiction / Prose Mode ───────────────────────────────────────────────────── */
+/* Traditional novel-style: indented first lines, no gap between paragraphs     */
+.prose--fiction {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  line-height: 2;
+  letter-spacing: 0.01em;
+}
+
+.prose--fiction p {
+  text-indent: 1.8em;
+  margin-bottom: 0;
+}
+
+/* Convention: no indent on the first paragraph of a section */
+.prose--fiction p:first-of-type,
+.prose--fiction h1 + p,
+.prose--fiction h2 + p,
+.prose--fiction h3 + p,
+.prose--fiction blockquote + p,
+.prose--fiction hr + p {
+  text-indent: 0;
+}
+
+/* Scene break — three asterisks rendered as a centered ornament */
+.prose--fiction hr {
+  border: none;
+  text-align: center;
+  margin: 1.5em 0;
+}
+
+.prose--fiction hr::after {
+  content: '* * *';
+  color: var(--text-3);
+  font-size: 0.9em;
+  letter-spacing: 0.4em;
+}
+
+/* Dialogue emphasis */
+.prose--fiction em {
+  font-style: italic;
+  color: inherit;
+}

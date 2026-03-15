@@ -3,7 +3,7 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import {
   Plus, Trash2, Eye, Edit3, Bold, Italic, List,
-  Heading2, Quote, Code, FileText
+  Heading2, Quote, Code, FileText, BookOpen, AlignLeft
 } from 'lucide-react';
 import type { Document } from '../types';
 import { wrapSelection, insertLine } from '../utils/markdown';
@@ -21,6 +21,7 @@ interface Props {
 
 export function EditorPage({ documents, activeDoc, onSelect, onCreate, onSave, onDelete }: Props) {
   const [preview, setPreview] = useState(false);
+  const [fictionMode, setFictionMode] = useState(false);
   const [localContent, setLocalContent] = useState('');
   const [localTitle, setLocalTitle] = useState('');
   const [activeDocId, setActiveDocId] = useState<string | null>(null);
@@ -126,6 +127,13 @@ export function EditorPage({ documents, activeDoc, onSelect, onCreate, onSave, o
             <div className={styles.editorActions}>
               <span className={styles.wordCount}>{words.toLocaleString()} words</span>
               <button
+                className={`btn btn-ghost ${styles.previewBtn} ${fictionMode ? styles.modeActive : ''}`}
+                onClick={() => setFictionMode(f => !f)}
+                title="Toggle fiction prose mode (indented paragraphs)"
+              >
+                {fictionMode ? <><BookOpen size={14}/> Fiction</> : <><AlignLeft size={14}/> Prose</>}
+              </button>
+              <button
                 className={`btn btn-ghost ${styles.previewBtn}`}
                 onClick={() => setPreview(p => !p)}
               >
@@ -167,7 +175,7 @@ export function EditorPage({ documents, activeDoc, onSelect, onCreate, onSave, o
 
           <div className={styles.editorBody}>
             {preview ? (
-              <div className={`prose ${styles.preview}`}>
+              <div className={`prose ${fictionMode ? 'prose--fiction' : ''} ${styles.preview}`}>
                 <ReactMarkdown remarkPlugins={[remarkGfm]}>
                   {localContent || '*Nothing to preview yet...*'}
                 </ReactMarkdown>
@@ -175,7 +183,7 @@ export function EditorPage({ documents, activeDoc, onSelect, onCreate, onSave, o
             ) : (
               <textarea
                 ref={textareaRef}
-                className={styles.textarea}
+                className={`${styles.textarea} ${fictionMode ? styles.textareaFiction : ''}`}
                 value={localContent}
                 onChange={e => handleContent(e.target.value)}
                 placeholder="Begin your story…
